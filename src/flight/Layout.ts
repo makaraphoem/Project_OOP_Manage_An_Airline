@@ -1,6 +1,9 @@
+import { Seat } from "./Seat"
+
 export class Layout{
-    constructor(public left: string, public right: string){
-        this.left = left,
-        this.right = right
+    seat: Seat[]=[];
+    constructor(public numOfRow: number, public numOfCol: number){
+        this.numOfRow = numOfRow,
+        this.numOfCol = numOfRow
     }
 }
