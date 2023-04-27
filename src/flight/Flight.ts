@@ -3,7 +3,7 @@ import { Route } from "./Route";
 import { Airplan } from "./Airplane";
 import { DateTime } from "./DateTime";
 export class Flight{
-    meal: Meal[]=[];
+    meals: Meal[]=[];
     private airplane: Airplan;
     dateTo: DateTime;
     dateFrom: DateTime;
@@ -18,4 +18,7 @@ export class Flight{
             this.departure = departure;
             this.arrival = arrival;
          }
+   setMeat(meal: Meal){
+      this.meals.push(meal);
+   }
 }
