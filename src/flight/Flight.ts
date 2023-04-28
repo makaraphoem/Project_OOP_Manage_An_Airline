@@ -2,6 +2,7 @@ import { Meal } from "./Meal"
 import { Route } from "./Route";
 import { Airplan } from "./Airplane";
 import { DateTime } from "./DateTime";
+import { Gate } from "../gate/Gate";
 export class Flight{
     meals: Meal[]=[];
     private airplane: Airplan;
@@ -9,14 +10,17 @@ export class Flight{
     dateFrom: DateTime;
     departure: Route;
     arrival: Route;
+    gate: Gate;
+
     constructor(public flightNumber: number, airplane: Airplan, dateTo: DateTime, dateFrom: DateTime,
-         departure: Route, arrival: Route ){
+         departure: Route, arrival: Route, gate: Gate){
             this.flightNumber = flightNumber;
             this.airplane = airplane;
             this.dateTo = dateTo;
             this.dateFrom = dateFrom;
             this.departure = departure;
             this.arrival = arrival;
+            this.gate = gate;
          }
    addMeat(meal: Meal){
       this.meals.push(meal);
