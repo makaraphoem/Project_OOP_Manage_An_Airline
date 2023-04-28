@@ -2,11 +2,13 @@ import { Person, Gender } from "../Person";
 
 import {Booking} from "../../booking/Booking";
 export class Passenger extends Person{
-    private booking: Booking;
-    constructor(firstName: string, lastName: string, age: number, gender: Gender, booking: Booking){
+     booking: Booking;
+    constructor(firstName: string, lastName: string, age: number, gender: Gender){
         super(firstName, lastName, age, gender);
-        this.booking = booking
     }
+    // addBooking(booking: Booking){
+    //     this.booking = booking
+    // }
     getBooking(){
         return this.booking;
     }

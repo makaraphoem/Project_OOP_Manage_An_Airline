@@ -11,4 +11,7 @@ export class Meal{
         this.mealName = mealName;
         this.mealType = mealType;
     }
+    getMeal(meal: Meal){
+        return this.mealName == meal.mealName && this.mealType == meal.mealType;
+    }
 }

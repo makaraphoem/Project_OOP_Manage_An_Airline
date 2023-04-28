@@ -1,5 +1,6 @@
 import { Airline } from "./airline/Airline";
 import { Flight } from "./flight/Flight";
+import { Meal } from "./flight/Meal";
 import { Gate } from "./gate/Gate";
 
 export class Airport{
@@ -26,17 +27,29 @@ export class Airport{
     getGate(){
         return this.gates;
     }
-    getDetailPassengerTrip(flights: Flight){
-        
+
+    getDetailPassengerTrip(){
+        for(let airline of this.airlines){
+            console.log(airline);
+        }
     }
     getPassengerReturnTrip(){
-
+        for(let airline of this.airlines){
+            // for(let trip of airline){
+                 console.log(airline);
+                    
+            // }
+        }
     }
    
-    getMealInFlight(){
-        // for(let airline of this.airlines){
-        //     console.log(airline);  
-        // }
+    getMealInFlight(): Meal[]{
+        let allMealInFlight: Meal[]=[];
+        for(let flight of this.flights){
+            for(let meal of flight.meals){
+                  allMealInFlight.push(meal);  
+            }
+        }
+        return allMealInFlight
     }
     getGateIsWait(){
 

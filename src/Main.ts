@@ -1,26 +1,84 @@
 import { Airline } from "./airline/Airline";
-import { Airplan } from "./flight/Airplane";
-import { Booking } from "./booking/Booking";
-import { Flight } from "./flight/Flight";
+import { Gender } from "./person/Person";
+import { Copilot } from "./person/emloyee/Copilot";
+import { Pilot } from "./person/emloyee/Pilot";
+import { EmployeeCategory } from "./person/emloyee/Employee";
+import { FlightAttendant } from "./person/emloyee/FlightAttendant";
+import { Manager } from "./person/emloyee/Manager";
 import { DateTime } from "./flight/DateTime";
-import { Layout } from "./flight/Layout";
-import { Meal, MealType } from "./flight/Meal";
 import { Route } from "./flight/Route";
-import { Seat } from "./flight/Seat";
-import { Trip } from "./flight/Trip";
+import { Meal, MealType } from "./flight/Meal";
+import { Flight } from "./flight/Flight";
+import { Airplan } from "./flight/Airplane";
 import { Gate } from "./gate/Gate";
-import { Gender, Person } from "./person/Person";
+import { Seat, SeatType } from "./flight/Seat";
+import { Layout } from "./flight/Layout";
 import { Airport } from "./Airport";
-import { Employee } from "./person/emloyee/Employee";
+import { Trip } from "./flight/Trip";
+import { Booking, TypeBooking } from "./booking/Booking";
+import { Passenger } from "./person/passenger/Passenger";
 
-//Grate Employees
-let emplyee = new Employee('phorn', 'So', 20,Gender.FEMALE);
-console.log(emplyee);
-//Grate Date
-let dateTime = new DateTime(28,4,2023,8);
-console.log(dateTime);
 
-//Create Meal
-let meal = new Meal('Piza', MealType.kosher);
-console.log(meal);
+let airport = new Airport("pp");
+// airline
+let airline = new Airline("PP");
+let employee1 = new Pilot(EmployeeCategory.PILOT,"srey nov", "neag", 12, Gender.FEMALE);
+let employee2 = new Pilot(EmployeeCategory.PILOT, "srey nov", "na", 12, Gender.FEMALE);
+let employee3= new FlightAttendant(EmployeeCategory.FLIGHTATTENDANT, "nimol", "pov", 12, Gender.FEMALE);
+let employee4 = new Manager(EmployeeCategory.MANAGER, "srey nov", "nov", 12, Gender.FEMALE)
+employee1.setSalary(234);
+employee2.setSalary(345);
+employee3.setSalary(543);
+employee4.setSalary(455);
+
+// date time arrival and departure
+let arrival = new DateTime(12, 3, 2023, 12);
+let departure = new DateTime(13, 4, 2023, 4);
+let routeDeparture = new Route("cambodia", "thailand");
+let routeArrival = new Route("thailand", "cambodia");
+// meal
+let meal1 = new Meal("pizza", MealType.glutenFree);
+let meal2 = new Meal("hodot", MealType.halal);
+
+airline.addEmployee(employee1)
+airline.addEmployee(employee2)
+airline.addEmployee(employee3)
+
+
+//  flight and gate
+let gate = new Gate(12, "", "" )
+let airplan = new Airplan("OH-LWP")
+let flight = new Flight("AY6404", airplan, departure, arrival, routeDeparture, routeArrival, gate)
+flight.addMeal(meal1)
+flight.addMeal(meal2)
+employee1.addFlight(flight)
+
+// seat
+let seatNumber = new Seat(3, SeatType.businessClass);
+let layout = new Layout(12, 2);
+layout.addSeat(seatNumber);
+
+// airport
+airport.addAirline(airline);
+airport.addFlight(flight);
+airport.addGate(gate);
+
+let trip = new Trip();
+let passenger1 = new Passenger("makara", "phoem", 12, Gender.FEMALE)
+let booking1 = new Booking(120, TypeBooking.HAVETICKET )
+// passenger1.addBooking(booking1);
+// booking1.addPassenger(passenger1);
+// booking1.addTrip(trip)
+
+trip.addBooking(booking1)
+// console.log(airline.getAllSalaryEmployee());
+// console.log(employee1.getFlights(employee1, departure));
+// console.log(airport.getMealInFlight());
+console.log(airport.getPassengerReturnTrip());
+
+
+
+
+
+
 

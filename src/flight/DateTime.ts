@@ -5,4 +5,12 @@ export class DateTime{
         this.year = year;
         this.time = time;
     }
+    isEqual(other: DateTime): boolean {
+        return (
+          this.day === other.day &&
+          this.month === other.month &&
+          this.year === other.year &&
+          this.time === other.time
+        );
+    }
 }

@@ -12,7 +12,7 @@ export class Flight{
     arrival: Route;
     gate: Gate;
 
-    constructor(public flightNumber: number, airplane: Airplan, dateTo: DateTime, dateFrom: DateTime,
+    constructor(public flightNumber: string, airplane: Airplan, dateTo: DateTime, dateFrom: DateTime,
          departure: Route, arrival: Route, gate: Gate){
             this.flightNumber = flightNumber;
             this.airplane = airplane;
@@ -22,7 +22,7 @@ export class Flight{
             this.arrival = arrival;
             this.gate = gate;
          }
-   addMeat(meal: Meal){
+   addMeal(meal: Meal){
       this.meals.push(meal);
    }
    getMeal(){

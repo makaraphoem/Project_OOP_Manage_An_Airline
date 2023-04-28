@@ -4,10 +4,10 @@ export enum SeatType{
     basisClass
 }
 export class Seat{
-   private seatNumber: string;
-   private seatType: SeatType
-    constructor(seatName: string, seatType: SeatType){
-        this.seatNumber = seatName;
+    seatNumber: number;
+    seatType: SeatType
+    constructor(seatNumber: number, seatType: SeatType){
+        this.seatNumber = seatNumber;
         this.seatType = seatType;
     }
 }

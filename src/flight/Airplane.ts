@@ -4,8 +4,8 @@ import { Layout } from "./Layout"
 export class Airplan{
     flights: Flight[]=[];
     layouts: Layout[]=[];
-    constructor(public numberOfPlan: number){
-        this.numberOfPlan = numberOfPlan
+    constructor(public airplanName: string){
+        this.airplanName = airplanName
     }
     addFlight(flight: Flight){
         this.flights.push(flight);
