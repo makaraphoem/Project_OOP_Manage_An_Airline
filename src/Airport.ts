@@ -8,13 +8,37 @@ export class Airport{
     gates: Gate[] = [];
     constructor(public name: string){}
     
-    setAirline(airline: Airline){
+    addAirline(airline: Airline){
         this.airlines.push(airline);
     }
-    setFlight(flight: Flight){
+    addFlight(flight: Flight){
         this.flights.push(flight);
     }
-    setGate(gate: Gate){
+    addGate(gate: Gate){
         this.gates.push(gate);
+    }
+    getAirline(){
+        return this.airlines;
+    }
+    getFight(){
+        return this.flights
+    }
+    getGate(){
+        return this.gates;
+    }
+    getDetailPassengerTrip(flights: Flight){
+        
+    }
+    getPassengerReturnTrip(){
+
+    }
+   
+    getMealInFlight(){
+        // for(let airline of this.airlines){
+        //     console.log(airline);  
+        // }
+    }
+    getGateIsWait(){
+
     }
 }

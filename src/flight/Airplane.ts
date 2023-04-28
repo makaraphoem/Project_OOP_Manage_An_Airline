@@ -3,14 +3,20 @@ import { Layout } from "./Layout"
 
 export class Airplan{
     flights: Flight[]=[];
-    layout: Layout[]=[];
+    layouts: Layout[]=[];
     constructor(public numberOfPlan: number){
         this.numberOfPlan = numberOfPlan
     }
-    setFlight(flight: Flight){
+    addFlight(flight: Flight){
         this.flights.push(flight);
     }
-    setLayout(layout: Layout){
-        this.layout.push(layout);
+    addLayout(layout: Layout){
+        this.layouts.push(layout);
+    }
+    getFlight(){
+        return this.flights;
+    }
+    getLayout(){
+        return this.layouts;
     }
 }

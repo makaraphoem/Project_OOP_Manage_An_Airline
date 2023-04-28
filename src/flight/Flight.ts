@@ -18,7 +18,10 @@ export class Flight{
             this.departure = departure;
             this.arrival = arrival;
          }
-   setMeat(meal: Meal){
+   addMeat(meal: Meal){
       this.meals.push(meal);
+   }
+   getMeal(){
+      return this.meals;
    }
 }

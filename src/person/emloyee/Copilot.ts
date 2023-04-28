@@ -1,9 +1,11 @@
 
+import { Flight } from "../../flight/Flight";
 import { Gender } from "../Person";
-import { Employee } from "./Employee";
+import { Employee, EmployeeCategory } from "./Employee";
 
 export class Copilot extends Employee{
-    constructor(firstName: string, lastName: string, age: number, gender: Gender){
-        super(firstName, lastName, age, gender);
+    constructor(categoryEmployee: EmployeeCategory, firstName: string, lastName: string, age: number, gender: Gender){
+        super(categoryEmployee, firstName, lastName, age, gender);
     }
+
 }

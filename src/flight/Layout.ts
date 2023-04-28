@@ -6,7 +6,10 @@ export class Layout{
         this.numOfRow = numOfRow,
         this.numOfCol = numOfRow
     }
-    setSeat(seat: Seat){
+    addSeat(seat: Seat){
         this.seats.push(seat);
+    }
+    getSeat(){
+        return this.seats
     }
 }
