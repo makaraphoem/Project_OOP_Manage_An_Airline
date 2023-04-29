@@ -1,4 +1,5 @@
 import { Airline } from "./airline/Airline";
+import { TypeBooking } from "./booking/Booking";
 import { Flight } from "./flight/Flight";
 import { Meal } from "./flight/Meal";
 import { Gate } from "./gate/Gate";
@@ -30,16 +31,24 @@ export class Airport{
 
     getDetailPassengerTrip(){
         for(let airline of this.airlines){
-            console.log(airline);
+            for(let trip of airline.trips){
+                console.log(trip);
+                
+            }
         }
     }
-    getPassengerReturnTrip(){
+    getPassengerReturnTrip(): number{
+        let countPassengerReturnTrip: number = 0;
         for(let airline of this.airlines){
-            // for(let trip of airline){
-                 console.log(airline);
-                    
-            // }
+            for(let trip of airline.trips){
+                for(let booking of trip.bookings){
+                    if(booking.typeBooking == TypeBooking.RETURNTICKET){
+                            countPassengerReturnTrip += 1                        
+                    }
+                }
+            }
         }
+        return  countPassengerReturnTrip
     }
    
     getMealInFlight(): Meal[]{

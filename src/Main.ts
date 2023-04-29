@@ -48,10 +48,12 @@ airline.addEmployee(employee3)
 //  flight and gate
 let gate = new Gate(12, "", "" )
 let airplan = new Airplan("OH-LWP")
-let flight = new Flight("AY6404", airplan, departure, arrival, routeDeparture, routeArrival, gate)
-flight.addMeal(meal1)
-flight.addMeal(meal2)
-employee1.addFlight(flight)
+let flight1 = new Flight("AY6404", airplan, departure, arrival, routeDeparture, routeArrival, gate)
+flight1.addMeal(meal1)
+flight1.addMeal(meal2)
+employee1.addFlight(flight1)
+employee2.addFlight(flight1)
+
 
 // seat
 let seatNumber = new Seat(3, SeatType.businessClass);
@@ -60,21 +62,28 @@ layout.addSeat(seatNumber);
 
 // airport
 airport.addAirline(airline);
-airport.addFlight(flight);
+airport.addFlight(flight1);
 airport.addGate(gate);
 
-let trip = new Trip();
+let trip1 = new Trip("t001");
 let passenger1 = new Passenger("makara", "phoem", 12, Gender.FEMALE)
-let booking1 = new Booking(120, TypeBooking.HAVETICKET )
-// passenger1.addBooking(booking1);
-// booking1.addPassenger(passenger1);
-// booking1.addTrip(trip)
+let booking1 = new Booking(120, trip1, passenger1, TypeBooking.RETURNTICKET )
+let booking2 = new Booking(120, trip1, passenger1, TypeBooking.RETURNTICKET )
+passenger1.addBooking(booking1)
+passenger1.addBooking(booking2)
+trip1.addBooking(booking1);     
+trip1.addBooking(booking2);     
+trip1.addFlight(flight1);
+airline.addTrip(trip1);
 
-trip.addBooking(booking1)
+
+
 // console.log(airline.getAllSalaryEmployee());
 // console.log(employee1.getFlights(employee1, departure));
 // console.log(airport.getMealInFlight());
-console.log(airport.getPassengerReturnTrip());
+// console.log(airport.getPassengerReturnTrip());
+console.log(airport.getDetailPassengerTrip());
+
 
 
 

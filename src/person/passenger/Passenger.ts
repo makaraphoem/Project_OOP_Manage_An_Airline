@@ -2,14 +2,11 @@ import { Person, Gender } from "../Person";
 
 import {Booking} from "../../booking/Booking";
 export class Passenger extends Person{
-     booking: Booking;
-    constructor(firstName: string, lastName: string, age: number, gender: Gender){
+
+    constructor(firstName: string, lastName: string, age: number, gender: Gender, public bookings: Booking[]=[]){
         super(firstName, lastName, age, gender);
     }
-    // addBooking(booking: Booking){
-    //     this.booking = booking
-    // }
-    getBooking(){
-        return this.booking;
+    addBooking(booking: Booking){
+        this.bookings.push(booking);
     }
 }
