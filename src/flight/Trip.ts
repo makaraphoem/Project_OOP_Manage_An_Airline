@@ -15,7 +15,4 @@ export class Trip{
     addBooking(booking: Booking){
         this.bookings.push(booking)
     }
-    // getBooking(other: Booking){
-    //     return this.bookings == other.
-    // }
 }

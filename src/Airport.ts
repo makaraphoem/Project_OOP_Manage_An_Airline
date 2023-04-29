@@ -1,5 +1,5 @@
 import { Airline } from "./airline/Airline";
-import { TypeBooking } from "./booking/Booking";
+import { Booking, TypeBooking } from "./booking/Booking";
 import { Flight } from "./flight/Flight";
 import { Meal } from "./flight/Meal";
 import { Gate } from "./gate/Gate";
@@ -29,21 +29,29 @@ export class Airport{
         return this.gates;
     }
 
-    getDetailPassengerTrip(){
-        for(let airline of this.airlines){
-            for(let trip of airline.trips){
-                console.log(trip);
-                
-            }
-        }
-    }
-    getPassengerReturnTrip(): number{
-        let countPassengerReturnTrip: number = 0;
+    getDetailPassengerTrip(bookingId: number){
         for(let airline of this.airlines){
             for(let trip of airline.trips){
                 for(let booking of trip.bookings){
-                    if(booking.typeBooking == TypeBooking.RETURNTICKET){
-                            countPassengerReturnTrip += 1                        
+                    if(booking.bookingId == bookingId){
+                        return trip
+                    }
+                }  
+            }
+        }
+    }
+    getPassengerReturnTrip(flightNumber: string): number{
+        let countPassengerReturnTrip: number = 0;
+        for(let airline of this.airlines){
+            for(let trip of airline.trips){
+                for(let flight of trip.flights){
+                    if(flight.flightNumber == flightNumber){
+                        for(let booking of trip.bookings){
+                            if(booking.typeBooking == TypeBooking.RETURNTICKET){
+                                countPassengerReturnTrip += 1                        
+                            }
+                        }
+
                     }
                 }
             }
@@ -51,16 +59,16 @@ export class Airport{
         return  countPassengerReturnTrip
     }
    
-    getMealInFlight(): Meal[]{
-        let allMealInFlight: Meal[]=[];
+    getMealInFlight(flightNumber: string): Meal[]{
+        let allMealInFlight: Meal[] = [];
         for(let flight of this.flights){
-            for(let meal of flight.meals){
-                  allMealInFlight.push(meal);  
+            if(flight.flightNumber == flightNumber){
+                for(let meal of flight.meals){
+                    allMealInFlight.push(meal);  
+                }
             }
         }
         return allMealInFlight
     }
-    getGateIsWait(){
-
-    }
+   
 }

@@ -49,6 +49,7 @@ airline.addEmployee(employee3)
 let gate = new Gate(12, "", "" )
 let airplan = new Airplan("OH-LWP")
 let flight1 = new Flight("AY6404", airplan, departure, arrival, routeDeparture, routeArrival, gate)
+let flight2 = new Flight("WY6489", airplan, departure, arrival, routeDeparture, routeArrival, gate)
 flight1.addMeal(meal1)
 flight1.addMeal(meal2)
 employee1.addFlight(flight1)
@@ -67,8 +68,8 @@ airport.addGate(gate);
 
 let trip1 = new Trip("t001");
 let passenger1 = new Passenger("makara", "phoem", 12, Gender.FEMALE)
-let booking1 = new Booking(120, trip1, passenger1, TypeBooking.RETURNTICKET )
-let booking2 = new Booking(120, trip1, passenger1, TypeBooking.RETURNTICKET )
+let booking1 = new Booking(120, 1, trip1, passenger1, TypeBooking.RETURNTICKET )
+let booking2 = new Booking(120, 2, trip1, passenger1, TypeBooking.RETURNTICKET )
 passenger1.addBooking(booking1)
 passenger1.addBooking(booking2)
 trip1.addBooking(booking1);     
@@ -80,9 +81,12 @@ airline.addTrip(trip1);
 
 // console.log(airline.getAllSalaryEmployee());
 // console.log(employee1.getFlights(employee1, departure));
-// console.log(airport.getMealInFlight());
-// console.log(airport.getPassengerReturnTrip());
-console.log(airport.getDetailPassengerTrip());
+// console.log(airport.getMealInFlight("AY6404"));
+// console.log(airport.getPassengerReturnTrip("AY6404"));
+// console.log(airport.getDetailPassengerTrip(2));
+// console.log(passenger1.getGateNumber("AY6404", arrival));
+
+
 
 
 

@@ -8,6 +8,7 @@ export enum TypeBooking{
 export class Booking{
     constructor(
         private price: number,
+        public bookingId: number,
         public trip: Trip, 
         public passenger: Passenger,
         public typeBooking: TypeBooking ){}
