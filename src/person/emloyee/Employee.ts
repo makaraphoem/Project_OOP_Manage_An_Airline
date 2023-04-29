@@ -32,16 +32,18 @@ export class Employee extends Person{
     getPilot(pilot: Pilot){
         return this.firstName == pilot.firstName && this.lastName == pilot.lastName && this.age == pilot.age;
     }
-    
-    getFlights (pilot: Pilot, date: DateTime): Flight[]{
+    getFlights(pilot: Pilot, date: DateTime){
         let getAllPilotFlight: Flight[]=[];
         if(this.getPilot(pilot)){
+            let countFlight:number = 0
             for(let flight of this.flights){
-                if(flight.dateFrom.isEqual(date) || flight.dateTo.isEqual(date)){
-                    getAllPilotFlight.push(flight);
+                if(flight.dateFrom.isEqual(date)){
+                    countFlight += 1;
+                    getAllPilotFlight.push(flight); 
                 }
             }
+            return countFlight;
         }
-        return getAllPilotFlight;
     }  
+    
 }

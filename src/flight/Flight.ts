@@ -5,7 +5,7 @@ import { DateTime } from "./DateTime";
 import { Gate } from "../gate/Gate";
 export class Flight{
     meals: Meal[]=[];
-    private airplane: Airplan;
+   airplane: Airplan;
     dateTo: DateTime;
     dateFrom: DateTime;
     departure: Route;

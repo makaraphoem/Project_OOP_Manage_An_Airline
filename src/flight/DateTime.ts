@@ -9,8 +9,7 @@ export class DateTime{
         return (
           this.day === other.day &&
           this.month === other.month &&
-          this.year === other.year &&
-          this.time === other.time
+          this.year === other.year
         );
     }
 }
